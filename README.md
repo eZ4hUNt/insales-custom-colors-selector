@@ -73,3 +73,8 @@
 ```
 4. Заливаем в файловый менеджер картинки цвета, названия которых должны быть в формате *"<название цвета в свойствах вариантов пункта 1>.gif"*.
 Например: *черный_с_серым.gif*
+
+## Сам скрипт и пример на GitHub
+https://github.com/eZ4hUNt/insales-custom-colors-selector/
+
+Пример: http://studio-make-up.ru/product/paletka-teney-dlya-vek-5-v-1-golden-rose-professional-palette-eyeshadow-103-blue-line
