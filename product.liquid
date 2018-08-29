@@ -1,0 +1,33 @@
+<script type="text/javascript">
+     <!--//--><![CDATA[//><!--
+    $(function() {
+		var $colors = {};
+        {% for option in product.options %}
+           {% assign option_title = option.title | downcase %}
+				   
+           {% if option_title == 'цвет' %}
+              {% for value in option.values %}
+                 {% assign fileName = value.title %}
+                 {% capture fileName %}{{fileName | replace: ' ', '_' }}.gif{% endcapture %}
+                 $colors[ '{{ value.title | downcase }}' ] = '{{ fileName | file_url }}';
+              {% endfor %}
+           {% endif %}
+   		{% endfor %}
+
+        var
+            $config = {
+              selector: '#variant-select',
+              product:  {{ product | json }},
+              settings: {
+                params:{
+                  'цвет': 'color',
+                  'модификация': 'select'
+                },
+                firstOption:true,
+                color: $colors
+              },
+            };
+        selectors = new InSales.OptionSelectors( $config );
+  });
+   //--><!]]>
+</script>

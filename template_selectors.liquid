@@ -1,0 +1,30 @@
+{% comment %}
+  шаблон для блока с цветами
+{% endcomment %}
+<script type="text/template" hidden class="selectors" id="color">
+  <% for variant in @variants : %>
+    <span data-option-id="<%- variant.id %>"
+          data-option-position="<%- variant.position %>"
+          data-option-index="<%- @options.index %>"
+
+          data-image-id="<%- @getImageId variant.title %>"
+          data-image-original="<%- @getGalleryOriginal variant.title %>"
+          data-image-preview="<%- @getGalleryPreview variant.title %>"
+
+          class="variant-color
+                variant-color--<%- @options.name %>
+                <% if !variant.available : %>
+                  variant-color--unavailable
+                <% end %>
+                <% if variant.position == @options.selected && !@options.is_disabled : %>
+                  variant-color--active
+                <% end %>"
+    >
+      <img  src="<%- @getColor variant.title %>"
+            title="<%- variant.title %>"
+            alt="<%- variant.title %>"
+            class="variant-color_image"
+      />
+    </span>
+  <% end %>
+</script>
